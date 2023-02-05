@@ -117,7 +117,7 @@ class Enrollment(models.Model):
 
 class Question(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
-    question_text = models.CharField(max_length=550, default="question text")
+    text = models.CharField(max_length=550, default="question text")
     grade = models.FloatField(default=5.0)
 
     def is_get_score(self, selected_ids):
@@ -143,7 +143,7 @@ class Question(models.Model):
 
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=512, default="choice text")
+    text = models.CharField(max_length=512, default="choice text")
     is_correct = models.BooleanField(default=False)    
 
 #class Submission(models.Model):
